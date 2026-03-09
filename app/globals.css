@@ -1,26 +1,409 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+
+  --primary-blue: #154B81;
+  --light-blue: #73A1CC;
+  --navy-blue: #12385F;
+  --bright-cyan: #2B93D1;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: 0 0% 100%;
+    --foreground: 210 100% 22%;
+    --card: 0 0% 100%;
+    --card-foreground: 210 100% 22%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 100% 22%;
+    --primary: 207 72% 29%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 207 42% 62%;
+    --secondary-foreground: 210 100% 22%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 199 65% 49%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 207 72% 29%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+  }
+  .dark {
+    --background: 210 100% 12%;
+    --foreground: 0 0% 98%;
+    --card: 210 100% 12%;
+    --card-foreground: 0 0% 98%;
+    --popover: 210 100% 12%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 207 72% 29%;
+    --secondary: 210 100% 22%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 210 100% 22%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 210 100% 22%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 210 100% 22%;
+    --input: 210 100% 22%;
+    --ring: 0 0% 83.1%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ==================== RESPONSIVE LAYOUT CLASSES ==================== */
+
+/* --- Container --- */
+.lp-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* --- Header --- */
+.lp-header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  height: 72px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+}
+
+.lp-header-brand-text {
+  display: block;
+}
+
+.lp-header-nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.lp-header-cta {
+  display: inline-flex;
+}
+
+.lp-mobile-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+
+/* --- Hero --- */
+.lp-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.lp-hero-title {
+  font-size: 42px;
+  font-weight: 800;
+  color: #12385F;
+  line-height: 1.15;
+  margin-bottom: 20px;
+  letter-spacing: -0.5px;
+}
+
+.lp-hero-image-wrapper {
+  width: 360px;
+  height: 360px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(18, 56, 95, 0.15);
+  background-color: #fff;
+  position: relative;
+}
+
+.lp-hero-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+/* --- Services --- */
+.lp-services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* --- Benefits --- */
+.lp-benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px;
+}
+
+/* --- Exam Catalog --- */
+.lp-exam-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.lp-exam-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px 48px;
+}
+
+.lp-exam-card {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #fff;
+  border: 1px solid #E8EDF2;
+  border-radius: 12px;
+  padding: 32px;
+}
+
+/* --- Contact --- */
+.lp-contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.lp-contact-title {
+  font-size: 32px;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 16px;
+  letter-spacing: -0.3px;
+}
+
+/* --- Footer --- */
+.lp-footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* --- Section padding --- */
+.lp-section {
+  padding: 96px 0;
+}
+
+.lp-section-sm {
+  padding: 80px 0;
+}
+
+/* --- Section headings --- */
+.lp-section-title {
+  font-size: 32px;
+  font-weight: 800;
+  color: #12385F;
+  margin-bottom: 16px;
+  letter-spacing: -0.3px;
+}
+
+/* ==================== MOBILE RESPONSIVE ==================== */
+@media (max-width: 768px) {
+  .lp-container {
+    padding: 0 20px;
+  }
+
+  .lp-header-inner {
+    padding: 0 20px;
+    height: 64px;
+  }
+
+  .lp-header-brand-text {
+    display: none;
+  }
+
+  .lp-header-nav {
+    display: none !important;
+  }
+
+  .lp-header-cta {
+    display: none !important;
+    visibility: hidden !important;
+    width: 0 !important;
+    height: 0 !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: 0 !important;
+    opacity: 0 !important;
+    position: absolute !important;
+  }
+
+  .lp-mobile-toggle {
+    display: block;
+  }
+
+  /* Mobile nav overlay */
+  .lp-mobile-nav {
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    border-bottom: 1px solid #f0f0f0;
+    padding: 16px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    z-index: 40;
+  }
+
+  .lp-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    text-align: center;
+  }
+
+  .lp-hero-grid p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .lp-hero-title {
+    font-size: 28px;
+  }
+
+  .lp-hero-image-wrapper {
+    width: 220px;
+    height: 220px;
+    margin: 0 auto;
+  }
+
+  .lp-hero-buttons {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .lp-hero-buttons button {
+    font-size: 13px !important;
+    padding: 10px 20px !important;
+  }
+
+  .lp-section {
+    padding: 56px 0;
+  }
+
+  .lp-section-sm {
+    padding: 48px 0;
+  }
+
+  .lp-section-title {
+    font-size: 24px;
+  }
+
+  .lp-services-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .lp-benefits-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .lp-exam-tabs {
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+
+  .lp-exam-tabs button {
+    font-size: 12px !important;
+    padding: 8px 14px !important;
+  }
+
+  .lp-exam-list {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+
+  .lp-exam-card {
+    padding: 20px;
+  }
+
+  .lp-contact-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .lp-contact-title {
+    font-size: 26px;
+  }
+
+  .lp-footer-inner {
+    flex-direction: column;
+    gap: 12px;
+    padding: 0 20px;
+    text-align: center;
+  }
+}
+
+/* ==================== TABLET BREAKPOINT ==================== */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .lp-hero-grid {
+    gap: 32px;
+  }
+
+  .lp-hero-title {
+    font-size: 34px;
+  }
+
+  .lp-hero-image-wrapper {
+    width: 280px;
+    height: 280px;
+  }
+
+  .lp-services-grid {
+    gap: 16px;
+  }
+
+  .lp-section {
+    padding: 72px 0;
+  }
+
+  .lp-section-sm {
+    padding: 60px 0;
+  }
 }
