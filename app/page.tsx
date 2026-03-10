@@ -137,7 +137,7 @@ export default function Home() {
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
             <Image src="/logo_v1.jpg" alt="Logo" width={44} height={44} style={{ borderRadius: '50%' }} />
             <div className="lp-header-brand-text">
-              <div style={{ fontSize: '16px', fontWeight: 700, color: '#12385F', lineHeight: 1.2 }}>Laboratorio Clínico</div>
+              <div style={{ fontSize: '16px', fontWeight: 700, color: '#12385F', lineHeight: 1.2 }}>Laboratorio Clínico Martínez Ruiz</div>
               <div style={{ fontSize: '11px', color: '#73A1CC', lineHeight: 1.2 }}>Salud y Confianza</div>
             </div>
           </div>
@@ -156,7 +156,7 @@ export default function Home() {
             ))}
           </nav>
 
-          <button
+          {/* <button
             className="lp-header-cta"
             style={{
               backgroundColor: '#154B81',
@@ -173,7 +173,7 @@ export default function Home() {
             onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#154B81')}
           >
             Agendar Cita
-          </button>
+          </button> */}
 
           {/* Mobile hamburger */}
           <button
@@ -202,7 +202,7 @@ export default function Home() {
                 {item.label}
               </a>
             ))}
-            <button
+            {/* <button
               style={{
                 backgroundColor: '#154B81',
                 color: '#fff',
@@ -218,7 +218,7 @@ export default function Home() {
               onClick={() => setMobileMenuOpen(false)}
             >
               Agendar Cita
-            </button>
+            </button> */}
           </div>
         )}
       </header>
@@ -229,7 +229,7 @@ export default function Home() {
           <div className="lp-container">
             <div className="lp-hero-grid">
               <div>
-                <div style={{
+                {/* <div style={{
                   display: 'inline-block',
                   backgroundColor: '#E8F2FA',
                   color: '#154B81',
@@ -240,7 +240,7 @@ export default function Home() {
                   marginBottom: '24px',
                 }}>
                   Tecnología de Vanguardia
-                </div>
+                </div> */}
                 <h2 className="lp-hero-title">
                   Resultados Precisos y Confiables
                 </h2>
@@ -255,47 +255,58 @@ export default function Home() {
                   respaldados por tecnología moderna y un equipo de profesionales altamente capacitados.
                 </p>
                 <div className="lp-hero-buttons">
-                  <button style={{
-                    backgroundColor: '#154B81',
-                    color: '#fff',
-                    border: 'none',
-                    padding: '12px 28px',
-                    borderRadius: '8px',
-                    fontSize: '14px',
-                    fontWeight: 600,
-                    cursor: 'pointer',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '8px',
-                    transition: 'background-color 0.2s',
-                  }}
+                  <a
+                    href="#examenes"
+                    style={{
+                      backgroundColor: '#154B81',
+                      color: '#fff',
+                      border: 'none',
+                      padding: '12px 28px',
+                      borderRadius: '8px',
+                      fontSize: '14px',
+                      fontWeight: 600,
+                      cursor: 'pointer',
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '8px',
+                      transition: 'background-color 0.2s',
+                      textDecoration: 'none',
+                    }}
                     onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#12385F')}
                     onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#154B81')}
                   >
                     Ver Catálogo de Exámenes
                     <ChevronRight style={{ width: 16, height: 16 }} />
-                  </button>
-                  <button style={{
-                    backgroundColor: 'transparent',
-                    color: '#154B81',
-                    border: '2px solid #BDD4E9',
-                    padding: '12px 28px',
-                    borderRadius: '8px',
-                    fontSize: '14px',
-                    fontWeight: 600,
-                    cursor: 'pointer',
-                    transition: 'all 0.2s',
-                  }}
-                    onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#E8F2FA'; e.currentTarget.style.borderColor = '#73A1CC'; }}
-                    onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.borderColor = '#BDD4E9'; }}
+                  </a>
+                  <a
+                    href="https://wa.me/50499921206?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20informaci%C3%B3n%20sobre%20sus%20servicios"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      backgroundColor: 'transparent',
+                      color: '#25D366',
+                      border: '2px solid #25D366',
+                      padding: '12px 28px',
+                      borderRadius: '8px',
+                      fontSize: '14px',
+                      fontWeight: 600,
+                      cursor: 'pointer',
+                      transition: 'all 0.2s',
+                      textDecoration: 'none',
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '8px',
+                    }}
+                    onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#25D366'; e.currentTarget.style.color = '#fff'; }}
+                    onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.color = '#25D366'; }}
                   >
-                    Contactar
-                  </button>
+                    Contáctanos
+                  </a>
                 </div>
               </div>
               <div style={{ display: 'flex', justifyContent: 'center' }}>
                 <div className="lp-hero-image-wrapper">
-                  <Image src="/logo_v1.jpg" alt="Laboratorio" fill style={{ objectFit: 'contain', padding: '24px' }} />
+                  <Image src="/img-header-v1.jpg" alt="Laboratorio" fill priority style={{ objectFit: 'cover', padding: '0px' }} />
                 </div>
               </div>
             </div>
@@ -305,7 +316,7 @@ export default function Home() {
         {/* ==================== SERVICIOS ==================== */}
         <section id="servicios" className="lp-section">
           <div className="lp-container">
-            <div style={{ textAlign: 'center', marginBottom: '64px' }}>
+            <div style={{ textAlign: 'center', marginBottom: '48px' }}>
               <h2 className="lp-section-title">
                 Nuestros Servicios
               </h2>
@@ -360,40 +371,10 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ==================== BENEFICIOS ==================== */}
-        <section style={{ backgroundColor: '#f8fafc' }} className="lp-section-sm">
-          <div className="lp-container">
-            <div className="lp-benefits-grid">
-              {benefits.map((benefit, i) => (
-                <div key={i} style={{ textAlign: 'center' }}>
-                  <div style={{
-                    width: '64px',
-                    height: '64px',
-                    borderRadius: '50%',
-                    backgroundColor: '#E8F2FA',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    margin: '0 auto 20px',
-                  }}>
-                    <benefit.icon style={{ width: 28, height: 28, color: '#154B81' }} />
-                  </div>
-                  <h3 style={{ fontSize: '18px', fontWeight: 700, color: '#12385F', marginBottom: '8px' }}>
-                    {benefit.title}
-                  </h3>
-                  <p style={{ fontSize: '14px', color: '#64748B', lineHeight: 1.6 }}>
-                    {benefit.description}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* ==================== CATÁLOGO DE EXÁMENES ==================== */}
-        <section id="examenes" className="lp-section">
+        <section id="examenes" className="lp-section" style={{ backgroundColor:"#f8fafc" }}>
           <div className="lp-container">
-            <div style={{ textAlign: 'center', marginBottom: '48px' }}>
+            <div style={{ textAlign: 'center', marginBottom: '36px' }}>
               <h2 className="lp-section-title">
                 Catálogo de Exámenes
               </h2>
@@ -426,7 +407,7 @@ export default function Home() {
             </div>
 
             {/* Exam List Card */}
-            <div className="lp-exam-card">
+            <div className="lp-exam-card" style={{ backgroundColor:"f8fafc" }}>
               <h3 style={{ fontSize: '16px', fontWeight: 700, color: '#12385F', marginBottom: '24px', textDecoration: 'underline', textUnderlineOffset: '6px' }}>
                 {categoryTitles[activeCategory]}
               </h3>
@@ -455,6 +436,36 @@ export default function Home() {
           </div>
         </section>
 
+        {/* ==================== BENEFICIOS ==================== */}
+        <section style={{ backgroundColor: '#FFFFFF' }} className="lp-section-sm">
+          <div className="lp-container">
+            <div className="lp-benefits-grid">
+              {benefits.map((benefit, i) => (
+                <div key={i} style={{ textAlign: 'center' }}>
+                  <div style={{
+                    width: '64px',
+                    height: '64px',
+                    borderRadius: '50%',
+                    backgroundColor: '#E8F2FA',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    margin: '0 auto 20px',
+                  }}>
+                    <benefit.icon style={{ width: 28, height: 28, color: '#154B81' }} />
+                  </div>
+                  <h3 style={{ fontSize: '18px', fontWeight: 700, color: '#12385F', marginBottom: '8px' }}>
+                    {benefit.title}
+                  </h3>
+                  <p style={{ fontSize: '14px', color: '#64748B', lineHeight: 1.6 }}>
+                    {benefit.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* ==================== CONTACTO ==================== */}
         <section id="contacto" style={{ backgroundColor: '#12385F' }} className="lp-section">
           <div className="lp-container">
@@ -469,9 +480,9 @@ export default function Home() {
                 </p>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
                   {[
-                    { Icon: Phone, label: 'Teléfono', value: '+1 (555) 123-4567' },
-                    { Icon: Mail, label: 'Email', value: 'contacto@laboratorio.com' },
-                    { Icon: MapPin, label: 'Ubicación', value: 'Calle Principal #123' },
+                    { Icon: Phone, label: 'Teléfono', value: '2793-4073' },
+                    { Icon: Mail, label: 'Email', value: 'labmartinezruiz@gmail.com' },
+                    { Icon: MapPin, label: 'Ubicación', value: 'El Paraíso, Honduras' },
                   ].map(({ Icon, label, value }, i) => (
                     <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
                       <div style={{
@@ -510,8 +521,8 @@ export default function Home() {
                   Horario de Atención
                 </h3>
                 {[
-                  { day: 'Lunes - Viernes', hours: '7:00 AM - 6:00 PM', color: '#64748B' },
-                  { day: 'Sábados', hours: '8:00 AM - 2:00 PM', color: '#64748B' },
+                  { day: 'Lunes - Viernes', hours: '7:00 AM - 4:00 PM', color: '#64748B' },
+                  { day: 'Sábados', hours: '7:00 AM - 12:00 PM', color: '#64748B' },
                   { day: 'Domingos', hours: 'Cerrado', color: '#DF4F52' },
                 ].map(({ day, hours, color }, i) => (
                   <div
@@ -528,24 +539,32 @@ export default function Home() {
                     <span style={{ fontSize: '14px', fontWeight: 500, color }}>{hours}</span>
                   </div>
                 ))}
-                <button style={{
+                <a
+                  href="https://wa.me/50499921206?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20una%20cita"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
                   width: '100%',
-                  backgroundColor: '#DF4F52',
-                  color: '#ffffff',
-                  border: 'none',
+                  backgroundColor: 'transparent',
+                  color: '#25D366',
+                  border: '2px solid #25D366',
                   padding: '14px',
                   borderRadius: '8px',
                   fontSize: '14px',
-                  fontWeight: 600,
+                  fontWeight: '600',
                   cursor: 'pointer',
                   marginTop: '24px',
                   transition: 'background-color 0.2s',
-                }}
-                  onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#c93f42')}
-                  onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#DF4F52')}
+                  textDecoration: 'none',
+                  display: 'block',
+                  textAlign: 'center',
+                  boxSizing: 'border-box',
+                  } as React.CSSProperties}
+                  onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#25D366'; e.currentTarget.style.color = '#fff'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.color = '#25D366'; }}
                 >
-                  Agendar Cita
-                </button>
+                  Escríbenos
+                </a>
               </div>
             </div>
           </div>
@@ -558,12 +577,12 @@ export default function Home() {
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
             <Image src="/logo_v1.jpg" alt="Logo" width={36} height={36} style={{ borderRadius: '50%' }} />
             <div>
-              <div style={{ fontSize: '14px', fontWeight: 600, color: '#154B81' }}>Laboratorio Clínico</div>
+              <div style={{ fontSize: '14px', fontWeight: 600, color: '#154B81' }}>Laboratorio Clínico Martínez Ruiz</div>
               <div style={{ fontSize: '11px', color: '#73A1CC' }}>Salud y Confianza</div>
             </div>
           </div>
           <p style={{ fontSize: '13px', color: '#94A3B8' }}>
-            © 2024 Laboratorio Clínico. Todos los derechos reservados.
+            © 2024 Laboratorio Clínico Martínez Ruiz. Todos los derechos reservados.
           </p>
         </div>
       </footer>

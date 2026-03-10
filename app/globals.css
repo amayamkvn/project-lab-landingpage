@@ -189,7 +189,7 @@ html {
 .lp-exam-card {
   max-width: 800px;
   margin: 0 auto;
-  background-color: #fff;
+  background-color: #f8fafc;
   border: 1px solid #E8EDF2;
   border-radius: 12px;
   padding: 32px;
@@ -223,7 +223,7 @@ html {
 
 /* --- Section padding --- */
 .lp-section {
-  padding: 96px 0;
+  padding: 64px 0;
 }
 
 .lp-section-sm {
@@ -323,11 +323,11 @@ html {
   }
 
   .lp-section {
-    padding: 56px 0;
+    padding: 50px 0;
   }
 
   .lp-section-sm {
-    padding: 48px 0;
+    padding: 50px 0;
   }
 
   .lp-section-title {
@@ -400,10 +400,10 @@ html {
   }
 
   .lp-section {
-    padding: 72px 0;
+    padding: 64px 0;
   }
 
   .lp-section-sm {
-    padding: 60px 0;
+    padding: 52px 0;
   }
 }
