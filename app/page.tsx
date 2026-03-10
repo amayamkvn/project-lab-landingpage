@@ -279,7 +279,7 @@ export default function Home() {
                     <ChevronRight style={{ width: 16, height: 16 }} />
                   </a>
                   <a
-                    href="https://wa.me/50499921206?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20informaci%C3%B3n%20sobre%20sus%20servicios"
+                    href="https://wa.me/50499328135?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20informaci%C3%B3n%20sobre%20sus%20servicios"
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{
@@ -540,7 +540,7 @@ export default function Home() {
                   </div>
                 ))}
                 <a
-                  href="https://wa.me/50499921206?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20una%20cita"
+                  href="https://wa.me/50499328135?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20una%20informacion"
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{
