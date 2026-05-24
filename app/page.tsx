@@ -225,89 +225,74 @@ export default function Home() {
 
       <main>
         {/* ==================== HERO ==================== */}
-        <section style={{ backgroundColor: '#f8fafc' }} className="lp-section-sm">
-          <div className="lp-container">
-            <div className="lp-hero-grid">
-              <div>
-                {/* <div style={{
-                  display: 'inline-block',
-                  backgroundColor: '#E8F2FA',
-                  color: '#154B81',
-                  fontSize: '13px',
-                  fontWeight: 500,
-                  padding: '6px 16px',
-                  borderRadius: '20px',
-                  marginBottom: '24px',
-                }}>
-                  Tecnología de Vanguardia
-                </div> */}
-                <h2 className="lp-hero-title">
-                  Resultados Precisos y Confiables
-                </h2>
-                <p style={{
-                  fontSize: '16px',
-                  color: '#64748B',
-                  lineHeight: 1.7,
-                  marginBottom: '32px',
-                  maxWidth: '480px',
-                }}>
-                  Brindamos servicios de análisis clínicos con los más altos estándares de calidad,
-                  respaldados por tecnología moderna y un equipo de profesionales altamente capacitados.
-                </p>
-                <div className="lp-hero-buttons">
-                  <a
-                    href="#examenes"
-                    style={{
-                      backgroundColor: '#154B81',
-                      color: '#fff',
-                      border: 'none',
-                      padding: '12px 28px',
-                      borderRadius: '8px',
-                      fontSize: '14px',
-                      fontWeight: 600,
-                      cursor: 'pointer',
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      gap: '8px',
-                      transition: 'background-color 0.2s',
-                      textDecoration: 'none',
-                    }}
-                    onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#12385F')}
-                    onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#154B81')}
-                  >
-                    Ver Catálogo de Exámenes
-                    <ChevronRight style={{ width: 16, height: 16 }} />
-                  </a>
-                  <a
-                    href="https://wa.me/50499328135?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20informaci%C3%B3n%20sobre%20sus%20servicios"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{
-                      backgroundColor: 'transparent',
-                      color: '#25D366',
-                      border: '2px solid #25D366',
-                      padding: '12px 28px',
-                      borderRadius: '8px',
-                      fontSize: '14px',
-                      fontWeight: 600,
-                      cursor: 'pointer',
-                      transition: 'all 0.2s',
-                      textDecoration: 'none',
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      gap: '8px',
-                    }}
-                    onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#25D366'; e.currentTarget.style.color = '#fff'; }}
-                    onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.color = '#25D366'; }}
-                  >
-                    Contáctanos
-                  </a>
-                </div>
-              </div>
-              <div style={{ display: 'flex', justifyContent: 'center' }}>
-                <div className="lp-hero-image-wrapper">
-                  <Image src="/img-header-v1.jpg" alt="Laboratorio" fill priority style={{ objectFit: 'cover', padding: '0px' }} />
-                </div>
+        <section className="lp-hero">
+          <div className="lp-hero-media" aria-hidden="true">
+            <Image
+              src="/pexels-labv4.jpg"
+              alt=""
+              fill
+              priority
+              className="lp-hero-bg"
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 100vw, 100vw"
+            />
+          </div>
+          <div className="lp-hero-inner">
+            <div className="lp-hero-card">
+              <h2 className="lp-hero-title">
+                Resultados Precisos y Confiables
+              </h2>
+              <p className="lp-hero-description">
+                Brindamos servicios de análisis clínicos con los más altos estándares de calidad,
+                respaldados por tecnología moderna y un equipo de profesionales altamente capacitados.
+              </p>
+              <div className="lp-hero-buttons">
+                <a
+                  href="#examenes"
+                  style={{
+                    backgroundColor: '#154B81',
+                    color: '#fff',
+                    border: 'none',
+                    padding: '12px 28px',
+                    borderRadius: '8px',
+                    fontSize: '14px',
+                    fontWeight: 600,
+                    cursor: 'pointer',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    transition: 'background-color 0.2s',
+                    textDecoration: 'none',
+                  }}
+                  onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#12385F')}
+                  onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#154B81')}
+                >
+                  Ver Catálogo de Exámenes
+                  <ChevronRight style={{ width: 16, height: 16 }} />
+                </a>
+                <a
+                  href="https://wa.me/50499328135?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20informaci%C3%B3n%20sobre%20sus%20servicios"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    backgroundColor: 'transparent',
+                    color: '#25D366',
+                    border: '2px solid #25D366',
+                    padding: '12px 28px',
+                    borderRadius: '8px',
+                    fontSize: '14px',
+                    fontWeight: 600,
+                    cursor: 'pointer',
+                    transition: 'all 0.2s',
+                    textDecoration: 'none',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                  }}
+                  onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#25D366'; e.currentTarget.style.color = '#fff'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.color = '#25D366'; }}
+                >
+                  Contáctanos
+                </a>
               </div>
             </div>
           </div>
