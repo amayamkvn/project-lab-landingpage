@@ -5,7 +5,11 @@ import { useState } from 'react';
 import {
   Microscope,
   FlaskConical,
-  Stethoscope,
+  Droplets,
+  TestTube,
+  Beaker,
+  Activity,
+  HeartPulse,
   Clock,
   Shield,
   Award,
@@ -23,22 +27,40 @@ export default function Home() {
 
   const services = [
     {
-      icon: Microscope,
-      title: 'Análisis Clínicos',
-      description:
-        'Contamos con tecnología de vanguardia para realizar análisis precisos y confiables.',
-    },
-    {
       icon: FlaskConical,
-      title: 'Bioquímica',
+      title: 'Química Sanguínea',
       description:
-        'Pruebas especializadas en química sanguínea y metabólica con resultados rápidos.',
+        'Glucosa, lípidos, enzimas, electrolitos y demás analitos para el control metabólico.',
     },
     {
-      icon: Stethoscope,
+      icon: Droplets,
       title: 'Hematología',
       description:
-        'Estudios completos de sangre para diagnóstico y seguimiento de tratamientos.',
+        'Hemograma y estudios de sangre procesados en equipo especializado.',
+    },
+    {
+      icon: TestTube,
+      title: 'Parasitología',
+      description:
+        'Examen de heces y detección de parásitos intestinales.',
+    },
+    {
+      icon: Beaker,
+      title: 'Uroanálisis',
+      description:
+        'Examen general de orina y pruebas relacionadas con la función renal.',
+    },
+    {
+      icon: Microscope,
+      title: 'Bacteriología',
+      description:
+        'Cultivos y estudios para identificar microorganismos de importancia clínica.',
+    },
+    {
+      icon: Activity,
+      title: 'Pruebas especiales',
+      description:
+        'Hormonas, marcadores y estudios de apoyo al diagnóstico especializado.',
     },
   ];
 
@@ -251,21 +273,14 @@ export default function Home() {
                 Nuestros Servicios
               </h2>
               <p style={{ fontSize: '16px', color: '#64748B', maxWidth: '560px', margin: '0 auto', lineHeight: 1.6 }}>
-                Ofrecemos un amplio catálogo de exámenes médicos con tecnología de punta y resultados garantizados
+                Seis áreas de laboratorio y atención complementaria en sucursal.
               </p>
             </div>
             <div className="lp-services-grid">
               {services.map((service, i) => (
                 <div
                   key={i}
-                  style={{
-                    backgroundColor: '#fff',
-                    border: '1px solid #E8EDF2',
-                    borderRadius: '12px',
-                    padding: '32px 28px',
-                    transition: 'all 0.3s ease',
-                    cursor: 'default',
-                  }}
+                  className="lp-service-card"
                   onMouseEnter={(e) => {
                     e.currentTarget.style.boxShadow = '0 8px 30px rgba(18,56,95,0.08)';
                     e.currentTarget.style.borderColor = '#73A1CC';
@@ -277,16 +292,7 @@ export default function Home() {
                     e.currentTarget.style.transform = 'translateY(0)';
                   }}
                 >
-                  <div style={{
-                    width: '48px',
-                    height: '48px',
-                    borderRadius: '10px',
-                    backgroundColor: '#E8F2FA',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    marginBottom: '20px',
-                  }}>
+                  <div className="lp-service-icon">
                     <service.icon style={{ width: 24, height: 24, color: '#154B81' }} />
                   </div>
                   <h3 style={{ fontSize: '18px', fontWeight: 700, color: '#12385F', marginBottom: '10px' }}>
@@ -297,6 +303,30 @@ export default function Home() {
                   </p>
                 </div>
               ))}
+              <div
+                className="lp-service-card lp-service-vital"
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.boxShadow = '0 8px 30px rgba(18,56,95,0.08)';
+                  e.currentTarget.style.borderColor = '#73A1CC';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.boxShadow = 'none';
+                  e.currentTarget.style.borderColor = '#E8EDF2';
+                }}
+              >
+                <div className="lp-service-icon" style={{ marginBottom: 0 }}>
+                  <HeartPulse style={{ width: 24, height: 24, color: '#154B81' }} />
+                </div>
+                <div>
+                  <div className="lp-service-vital-label">Atención en sucursal</div>
+                  <h3 style={{ fontSize: '18px', fontWeight: 700, color: '#12385F', marginBottom: '8px' }}>
+                    Signos vitales y antropometría
+                  </h3>
+                  <p style={{ fontSize: '14px', color: '#64748B', lineHeight: 1.65, margin: 0 }}>
+                    Toma de peso, talla y presión arterial. Servicio inmediato, sin muestra ni informe de laboratorio.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </section>
