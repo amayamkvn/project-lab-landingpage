@@ -337,7 +337,7 @@ export default function Home() {
         <section className="lp-section-sm lp-benefits">
           <div className="lp-container">
             <div className="lp-benefits-intro">
-              <div className="lp-benefits-label">Por qué elegirnos</div>
+              <div className="lp-benefits-label">¿Por qué elegirnos?</div>
               <h2 className="lp-section-title" style={{ marginBottom: 0 }}>
                 Nuestros beneficios
               </h2>
@@ -383,7 +383,7 @@ export default function Home() {
                 </p>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
                   {[
-                    { Icon: Phone, label: 'Teléfono', value: '2793-4073' },
+                    { Icon: Phone, label: 'Teléfono', value: '2793-4073 / 9917-8861' },
                     { Icon: Mail, label: 'Email', value: 'labmartinezruiz@gmail.com' },
                     { Icon: MapPin, label: 'Ubicación', value: 'El Paraíso, Honduras' },
                   ].map(({ Icon, label, value }, i) => (
