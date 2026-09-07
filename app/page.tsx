@@ -20,7 +20,7 @@ import {
   Menu,
   X,
 } from 'lucide-react';
-import ExamCatalog from '../components/exam-catalog';
+// import ExamCatalog from '../components/exam-catalog';
 
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -84,7 +84,7 @@ export default function Home() {
 
   const navLinks = [
     { label: 'Servicios', href: '#servicios' },
-    { label: 'Exámenes', href: '#examenes' },
+    // { label: 'Exámenes', href: '#examenes' },
     { label: 'Contacto', href: '#contacto' },
   ];
 
@@ -213,7 +213,7 @@ export default function Home() {
                 respaldados por tecnología moderna y un equipo de profesionales altamente capacitados.
               </p>
               <div className="lp-hero-buttons">
-                <a
+                {/* <a
                   href="#examenes"
                   style={{
                     backgroundColor: '#154B81',
@@ -235,7 +235,7 @@ export default function Home() {
                 >
                   Ver Catálogo de Exámenes
                   <ChevronRight style={{ width: 16, height: 16 }} />
-                </a>
+                </a> */}
                 <a
                   href="https://wa.me/50499178861?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20informaci%C3%B3n%20sobre%20sus%20servicios"
                   target="_blank"
@@ -331,7 +331,7 @@ export default function Home() {
           </div>
         </section>
 
-        <ExamCatalog />
+        {/* <ExamCatalog /> */}
 
         {/* ==================== BENEFICIOS ==================== */}
         <section style={{ backgroundColor: '#FFFFFF' }} className="lp-section-sm">
