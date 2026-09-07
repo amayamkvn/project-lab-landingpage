@@ -1,0 +1,634 @@
+{
+  "categories": [
+    {
+      "name": "Química Sanguínea",
+      "sortOrder": 1
+    },
+    {
+      "name": "Hematología",
+      "sortOrder": 2
+    },
+    {
+      "name": "Parasitología",
+      "sortOrder": 3
+    },
+    {
+      "name": "Uroanálisis",
+      "sortOrder": 4
+    },
+    {
+      "name": "Bacteriología",
+      "sortOrder": 5
+    },
+    {
+      "name": "Pruebas especiales",
+      "sortOrder": 6
+    }
+  ],
+  "exams": [
+    {
+      "name": "Albumina",
+      "category": "Química Sanguínea"
+    },
+    {
+      "name": "Amilasa",
+      "category": "Química Sanguínea"
+    },
+    {
+      "name": "Acido urico",
+      "category": "Química Sanguínea"
+    },
+    {
+      "name": "Bilirrubina Total",
+      "category": "Química Sanguínea"
+    },
+    {
+      "name": "Bilirrubina directa",
+      "category": "Química Sanguínea"
+    },
+    {
+      "name": "Bilirrubina Indirecta",
+      "category": "Química Sanguínea"
+    },
+    {
+      "name": "Calcio",
+      "category": "Química Sanguínea"
+    },
+    {
+      "name": "Cloro",
+      "category": "Química Sanguínea"
+    },
+    {
+      "name": "Colesterol Total",
+      "category": "Química Sanguínea"
+    },
+    {
+      "name": "Colesterol HDL",
+      "category": "Química Sanguínea"
+    },
+    {
+      "name": "Colesterol LDL",
+      "category": "Química Sanguínea"
+    },
+    {
+      "name": "Colinesterasa",
+      "category": "Química Sanguínea"
+    },
+    {
+      "name": "Creatinina",
+      "category": "Química Sanguínea"
+    },
+    {
+      "name": "Curva de tolerancia a glucosa",
+      "category": "Química Sanguínea"
+    },
+    {
+      "name": "Depuracion de la creatinina",
+      "category": "Química Sanguínea"
+    },
+    {
+      "name": "Deshidrogenasa lactica LDH",
+      "category": "Química Sanguínea"
+    },
+    {
+      "name": "Fosfatasa alcalina",
+      "category": "Química Sanguínea"
+    },
+    {
+      "name": "Fosforo",
+      "category": "Química Sanguínea"
+    },
+    {
+      "name": "Gammaglutamil",
+      "category": "Química Sanguínea"
+    },
+    {
+      "name": "Glucosa",
+      "category": "Química Sanguínea"
+    },
+    {
+      "name": "Potasio",
+      "category": "Química Sanguínea"
+    },
+    {
+      "name": "Proteinas totales",
+      "category": "Química Sanguínea"
+    },
+    {
+      "name": "Proteinas en orina al azar",
+      "category": "Química Sanguínea"
+    },
+    {
+      "name": "Proteinas en orina de 24 horas",
+      "category": "Química Sanguínea"
+    },
+    {
+      "name": "Sodio",
+      "category": "Química Sanguínea"
+    },
+    {
+      "name": "TGO",
+      "category": "Química Sanguínea"
+    },
+    {
+      "name": "TGP",
+      "category": "Química Sanguínea"
+    },
+    {
+      "name": "Trigliceridos",
+      "category": "Química Sanguínea"
+    },
+    {
+      "name": "Urea",
+      "category": "Química Sanguínea"
+    },
+    {
+      "name": "Drepanocitos",
+      "category": "Hematología"
+    },
+    {
+      "name": "Eosinofilos Totales",
+      "category": "Hematología"
+    },
+    {
+      "name": "Eritrosedimentacion",
+      "category": "Hematología"
+    },
+    {
+      "name": "Frotis de sangre periferica",
+      "category": "Hematología"
+    },
+    {
+      "name": "Hematozoario",
+      "category": "Hematología"
+    },
+    {
+      "name": "Hemograma completo",
+      "category": "Hematología"
+    },
+    {
+      "name": "Recuento de reticulocitos",
+      "category": "Hematología"
+    },
+    {
+      "name": "Recuento manual de plaquetas",
+      "category": "Hematología"
+    },
+    {
+      "name": "Tiempo de sangrado",
+      "category": "Hematología"
+    },
+    {
+      "name": "TP",
+      "category": "Hematología"
+    },
+    {
+      "name": "TTP",
+      "category": "Hematología"
+    },
+    {
+      "name": "Examen general de heces",
+      "category": "Parasitología"
+    },
+    {
+      "name": "Fehling",
+      "category": "Parasitología"
+    },
+    {
+      "name": "pH",
+      "category": "Parasitología"
+    },
+    {
+      "name": "Recuento diferencial en heces",
+      "category": "Parasitología"
+    },
+    {
+      "name": "Sangre oculta en heces",
+      "category": "Parasitología"
+    },
+    {
+      "name": "Coloracion de Wright +diferencial",
+      "category": "Parasitología"
+    },
+    {
+      "name": "General de orina",
+      "category": "Uroanálisis"
+    },
+    {
+      "name": "Prueba de embarazo en orina",
+      "category": "Uroanálisis"
+    },
+    {
+      "name": "Cultivo de exudado faringeo",
+      "category": "Bacteriología"
+    },
+    {
+      "name": "Cultivo de Secrecion nasal",
+      "category": "Bacteriología"
+    },
+    {
+      "name": "Cultivo de secrecion vaginal",
+      "category": "Bacteriología"
+    },
+    {
+      "name": "Cultivo de secrecion uretral",
+      "category": "Bacteriología"
+    },
+    {
+      "name": "Cultivo de orina",
+      "category": "Bacteriología"
+    },
+    {
+      "name": "Cultivo de Ulcera",
+      "category": "Bacteriología"
+    },
+    {
+      "name": "Cultivo de pus de herida",
+      "category": "Bacteriología"
+    },
+    {
+      "name": "Coloracion de Gram",
+      "category": "Bacteriología"
+    },
+    {
+      "name": "Coloracion de Zeahl Neelsen",
+      "category": "Bacteriología"
+    },
+    {
+      "name": "Baciloscopia",
+      "category": "Bacteriología"
+    },
+    {
+      "name": "Espermograma",
+      "category": "Bacteriología"
+    },
+    {
+      "name": "Examen en fresco",
+      "category": "Bacteriología"
+    },
+    {
+      "name": "Examen de KOH",
+      "category": "Bacteriología"
+    },
+    {
+      "name": "Anticuerpos antinucleares ANA",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "Anticuerpos anti-ADN",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "AntiRNP-70",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "Anti SM-RNP",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "Anti SM",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "Anti JO-1",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "Anti SSA-RO",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "Anti SCL-70",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "Anti SSB-LA",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "Anti centromero",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "Anti-Beta-Glicoproteina IgG/IgM",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "Anti-Mulleriana HAM",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "Anti Mycoplasma IgM",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "Anticuerpos Cisticercosis IgG",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "Anticuerpos CCP",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "Ac Chlamydia IgM",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "Ac Chlamydia IgG",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "Ac CMV IgM",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "Ac CMV IgG",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "Ac Dengue + Antigeno",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "Ac Epstein Barr IgM",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "Ac Epstein Barr IgG",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "ANCA p",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "ANCA c",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "Ac Varicela Igm",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "Ac Varicela IgG",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "Ac VIH 1/2",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "Ac Herpes 1IgM",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "Ac Herpes 1 IgG",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "Ac Herpes 2 IgM",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "Ac Herpes 2 IgG",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "Ac Paperas IgM",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "Ac Paperas IgG",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "Ac Rubeola IgM",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "Ac Rubeola IgG",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "Ac Sarampion IgM",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "Ac Sarampion IgG",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "Ac Toxoplasma IgM",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "Ac Toxoplasma IgG",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "Alfafetoproteina AFP Testiculos",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "Antigeno Carcinoembrionario CEA",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "Ag Prostatico Especifico Total PSA T",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "Ag Prostatico Especifico Libre PSA L",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "Hepatitis A",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "Hepatitis B",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "Hepatitis C",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "Anticoagulante Lupico",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "Beta 2 microglobulina",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "CA-15-3 mama",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "CA-19-9 Tracto GI, Pulmones",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "CA- 125  Ovarios",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "Cortisol am",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "Complemento serico C3",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "Complemento serico C4",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "Estradiol",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "FSH",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "Ferritina",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "Glicohemoglobina A1C",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "Hierro",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "Hormona del crecimiento HC",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "Hormona ACTH",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "HGC-beta",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "Insulina Ayunas",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "Insulina 2hpp",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "Insulina Curva 3 horas",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "IgE",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "IgA",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "IgG",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "IgM",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "LH",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "Progesterona",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "Prolactina",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "T3",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "T4",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "TSH",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "T3 Libre",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "T4 Libre",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "Testosterona Total",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "Testosterona Libre",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "Tiroglobulina",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "Anti Tiroglobulina TG",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "Anti Peroxidasa PO",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "Anti Cardiolipinas IgM",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "Anti Cardiolipinas IgG",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "Paratohormona PTH",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "Ac T.cruzi Chagas",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "Vitamina B12",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "Vitamina D",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "Dimero D",
+      "category": "Pruebas especiales"
+    },
+    {
+      "name": "Prueba de Embarazo en sangre",
+      "category": "Pruebas especiales"
+    }
+  ]
+}

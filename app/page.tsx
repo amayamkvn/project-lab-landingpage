@@ -16,9 +16,9 @@ import {
   Menu,
   X,
 } from 'lucide-react';
+import ExamCatalog from '../components/exam-catalog';
 
 export default function Home() {
-  const [activeCategory, setActiveCategory] = useState('general');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const services = [
@@ -59,61 +59,6 @@ export default function Home() {
       description: 'Personal altamente capacitado',
     },
   ];
-
-  const examCategories: Record<string, string[]> = {
-    general: [
-      'Hemograma Completo',
-      'Química Sanguínea',
-      'Perfil Lipídico',
-      'Glucosa',
-      'Creatinina',
-      'Ácido Úrico',
-      'Transaminasas (TGO/TGP)',
-      'Bilirrubinas',
-    ],
-    hormonales: [
-      'Perfil Tiroideo (TSH, T3, T4)',
-      'Hormonas Sexuales',
-      'Cortisol',
-      'Prolactina',
-      'Testosterona',
-      'Progesterona',
-      'Estradiol',
-      'FSH / LH',
-    ],
-    inmunologia: [
-      'Proteína C Reactiva',
-      'Factor Reumatoide',
-      'Antiestreptolisinas (ASO)',
-      'VDRL',
-      'VIH',
-      'Hepatitis A, B, C',
-      'Toxoplasma',
-      'Rubéola',
-    ],
-    orina: [
-      'Examen General de Orina',
-      'Urocultivo',
-      'Depuración de Creatinina',
-      'Microalbuminuria',
-      'Proteínas en Orina 24h',
-      'Citología Urinaria',
-    ],
-  };
-
-  const categoryTabs = [
-    { key: 'general', label: 'Análisis Generales' },
-    { key: 'hormonales', label: 'Perfil Hormonal' },
-    { key: 'inmunologia', label: 'Inmunología' },
-    { key: 'orina', label: 'Análisis de Orina' },
-  ];
-
-  const categoryTitles: Record<string, string> = {
-    general: 'Análisis Clínicos Generales',
-    hormonales: 'Perfil Hormonal',
-    inmunologia: 'Estudios Inmunológicos',
-    orina: 'Análisis de Orina',
-  };
 
   const navLinks = [
     { label: 'Servicios', href: '#servicios' },
@@ -270,7 +215,7 @@ export default function Home() {
                   <ChevronRight style={{ width: 16, height: 16 }} />
                 </a>
                 <a
-                  href="https://wa.me/50499328135?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20informaci%C3%B3n%20sobre%20sus%20servicios"
+                  href="https://wa.me/50499178861?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20informaci%C3%B3n%20sobre%20sus%20servicios"
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{
@@ -356,70 +301,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ==================== CATÁLOGO DE EXÁMENES ==================== */}
-        <section id="examenes" className="lp-section" style={{ backgroundColor:"#f8fafc" }}>
-          <div className="lp-container">
-            <div style={{ textAlign: 'center', marginBottom: '36px' }}>
-              <h2 className="lp-section-title">
-                Catálogo de Exámenes
-              </h2>
-              <p style={{ fontSize: '16px', color: '#64748B', maxWidth: '560px', margin: '0 auto', lineHeight: 1.6 }}>
-                Amplia variedad de análisis clínicos para su diagnóstico y seguimiento médico
-              </p>
-            </div>
-
-            {/* Tabs */}
-            <div className="lp-exam-tabs">
-              {categoryTabs.map(({ key, label }) => (
-                <button
-                  key={key}
-                  onClick={() => setActiveCategory(key)}
-                  style={{
-                    backgroundColor: activeCategory === key ? '#154B81' : 'transparent',
-                    color: activeCategory === key ? '#ffffff' : '#154B81',
-                    border: activeCategory === key ? '2px solid #154B81' : '2px solid #BDD4E9',
-                    padding: '10px 22px',
-                    borderRadius: '8px',
-                    fontSize: '13px',
-                    fontWeight: 600,
-                    cursor: 'pointer',
-                    transition: 'all 0.2s',
-                  }}
-                >
-                  {label}
-                </button>
-              ))}
-            </div>
-
-            {/* Exam List Card */}
-            <div className="lp-exam-card" style={{ backgroundColor:"f8fafc" }}>
-              <h3 style={{ fontSize: '16px', fontWeight: 700, color: '#12385F', marginBottom: '24px', textDecoration: 'underline', textUnderlineOffset: '6px' }}>
-                {categoryTitles[activeCategory]}
-              </h3>
-              <div className="lp-exam-list">
-                {examCategories[activeCategory].map((exam, i) => (
-                  <div
-                    key={i}
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '12px',
-                      padding: '10px 12px',
-                      borderRadius: '8px',
-                      transition: 'background-color 0.15s',
-                      cursor: 'default',
-                    }}
-                    onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#F0F7FD')}
-                    onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}
-                  >
-                    <div style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: '#2B93D1', flexShrink: 0 }} />
-                    <span style={{ fontSize: '14px', color: '#12385F' }}>{exam}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
+        <ExamCatalog />
 
         {/* ==================== BENEFICIOS ==================== */}
         <section style={{ backgroundColor: '#FFFFFF' }} className="lp-section-sm">
@@ -525,7 +407,7 @@ export default function Home() {
                   </div>
                 ))}
                 <a
-                  href="https://wa.me/50499328135?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20una%20informacion"
+                  href="https://wa.me/50499178861?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20una%20informacion"
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{

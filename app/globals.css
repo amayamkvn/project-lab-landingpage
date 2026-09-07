@@ -215,27 +215,105 @@ html {
 }
 
 /* --- Exam Catalog --- */
+.lp-exam-search {
+  max-width: 520px;
+  margin: 0 auto 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #ffffff;
+  border: 1px solid #E8EDF2;
+  border-radius: 12px;
+  padding: 12px 16px;
+}
+
+.lp-exam-search input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 15px;
+  color: #12385F;
+}
+
+.lp-exam-search input::placeholder {
+  color: #94A3B8;
+}
+
 .lp-exam-tabs {
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: 8px;
   flex-wrap: wrap;
-  margin-bottom: 40px;
+  margin-bottom: 28px;
+}
+
+.lp-exam-card {
+  max-width: 880px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border: 1px solid #E8EDF2;
+  border-radius: 12px;
+  padding: 24px 28px;
+}
+
+.lp-exam-group + .lp-exam-group {
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid #E8EDF2;
+}
+
+.lp-exam-group-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.lp-exam-group-head h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: #12385F;
+  margin: 0;
+}
+
+.lp-exam-group-head span {
+  font-size: 12px;
+  color: #73A1CC;
+  font-weight: 600;
+  white-space: nowrap;
 }
 
 .lp-exam-list {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4px 48px;
+  gap: 0 32px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 420px;
+  overflow-y: auto;
 }
 
-.lp-exam-card {
-  max-width: 800px;
-  margin: 0 auto;
-  background-color: #f8fafc;
-  border: 1px solid #E8EDF2;
-  border-radius: 12px;
-  padding: 32px;
+.lp-exam-list li {
+  font-size: 14px;
+  color: #12385F;
+  padding: 8px 4px 8px 14px;
+  position: relative;
+  line-height: 1.4;
+  border-bottom: 1px solid #F1F5F9;
+}
+
+.lp-exam-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 15px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #2B93D1;
 }
 
 /* --- Contact --- */
@@ -382,7 +460,7 @@ html {
 
   .lp-exam-tabs {
     gap: 8px;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
   }
 
   .lp-exam-tabs button {
@@ -392,11 +470,11 @@ html {
 
   .lp-exam-list {
     grid-template-columns: 1fr;
-    gap: 2px;
+    max-height: 360px;
   }
 
   .lp-exam-card {
-    padding: 20px;
+    padding: 18px 16px;
   }
 
   .lp-contact-grid {
