@@ -334,8 +334,14 @@ export default function Home() {
         {/* <ExamCatalog /> */}
 
         {/* ==================== BENEFICIOS ==================== */}
-        <section style={{ backgroundColor: '#FFFFFF' }} className="lp-section-sm">
+        <section className="lp-section-sm lp-benefits">
           <div className="lp-container">
+            <div className="lp-benefits-intro">
+              <div className="lp-benefits-label">Por qué elegirnos</div>
+              <h2 className="lp-section-title" style={{ marginBottom: 0 }}>
+                Nuestros beneficios
+              </h2>
+            </div>
             <div className="lp-benefits-grid">
               {benefits.map((benefit, i) => (
                 <div key={i} style={{ textAlign: 'center' }}>
