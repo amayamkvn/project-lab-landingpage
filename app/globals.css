@@ -311,7 +311,7 @@ a {
 
 .lp-hero-photo img {
   object-fit: cover;
-  object-position: center 20%;
+  object-position: 70% 35%;
 }
 
 .lp-hero-photo::after {

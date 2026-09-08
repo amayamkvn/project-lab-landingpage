@@ -261,11 +261,11 @@ export default function Home() {
             <div className="lp-hero-visual">
               <div className="lp-hero-photo">
                 <Image
-                  src="/pexels-labv4.jpg"
-                  alt="Profesional de laboratorio analizando muestras"
+                  src="/hero-lab.jpg"
+                  alt="Profesional de laboratorio observando una muestra en el microscopio"
                   fill
                   priority
-                  sizes="(max-width: 1024px) 100vw, 480px"
+                  sizes="(max-width: 1024px) 100vw, 560px"
                 />
               </div>
               <div className="lp-hero-badge">
