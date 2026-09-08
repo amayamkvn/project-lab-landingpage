@@ -1,13 +1,13 @@
 'use client';
 
 import Image from 'next/image';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
-  Microscope,
   FlaskConical,
   Droplets,
   TestTube,
   Beaker,
+  Microscope,
   Activity,
   HeartPulse,
   Clock,
@@ -16,14 +16,54 @@ import {
   Phone,
   Mail,
   MapPin,
-  ChevronRight,
   Menu,
   X,
+  Zap,
+  CircleCheck,
+  BadgeCheck,
+  CalendarClock,
+  Send,
+  LayoutGrid,
 } from 'lucide-react';
+import { WhatsAppIcon } from '../components/whatsapp-icon';
 // import ExamCatalog from '../components/exam-catalog';
+
+const WHATSAPP_URL =
+  'https://wa.me/50499178861?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20informaci%C3%B3n%20sobre%20sus%20servicios';
+const WHATSAPP_INFO_URL =
+  'https://wa.me/50499178861?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20una%20informacion';
+
+function isClinicOpen(date = new Date()): boolean {
+  const utc = date.getTime() + date.getTimezoneOffset() * 60000;
+  const honduras = new Date(utc - 3600000 * 6);
+  const day = honduras.getDay();
+  const totalMinutes = honduras.getHours() * 60 + honduras.getMinutes();
+
+  if (day >= 1 && day <= 5) {
+    return totalMinutes >= 420 && totalMinutes < 960;
+  }
+  if (day === 6) {
+    return totalMinutes >= 420 && totalMinutes < 720;
+  }
+  return false;
+}
 
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [clinicOpen, setClinicOpen] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    setClinicOpen(isClinicOpen());
+    const timer = window.setInterval(() => setClinicOpen(isClinicOpen()), 60_000);
+    return () => window.clearInterval(timer);
+  }, []);
+
+  const navLinks = [
+    { label: 'Inicio', href: '#inicio' },
+    { label: 'Servicios', href: '#servicios' },
+    { label: 'Beneficios', href: '#beneficios' },
+    { label: 'Horarios', href: '#horarios' },
+  ];
 
   const services = [
     {
@@ -35,32 +75,27 @@ export default function Home() {
     {
       icon: Droplets,
       title: 'Hematología',
-      description:
-        'Hemograma y estudios de sangre procesados en equipo especializado.',
+      description: 'Hemograma y estudios de sangre procesados en equipo especializado.',
     },
     {
       icon: TestTube,
       title: 'Parasitología',
-      description:
-        'Examen de heces y detección de parásitos intestinales.',
+      description: 'Examen de heces y detección de parásitos intestinales.',
     },
     {
       icon: Beaker,
       title: 'Uroanálisis',
-      description:
-        'Examen general de orina y pruebas relacionadas con la función renal.',
+      description: 'Examen general de orina y pruebas relacionadas con la función renal.',
     },
     {
       icon: Microscope,
       title: 'Bacteriología',
-      description:
-        'Cultivos y estudios para identificar microorganismos de importancia clínica.',
+      description: 'Cultivos y estudios para identificar microorganismos de importancia clínica.',
     },
     {
       icon: Activity,
       title: 'Pruebas especiales',
-      description:
-        'Hormonas, marcadores y estudios de apoyo al diagnóstico especializado.',
+      description: 'Hormonas, marcadores y estudios de apoyo al diagnóstico especializado.',
     },
   ];
 
@@ -68,404 +103,336 @@ export default function Home() {
     {
       icon: Clock,
       title: 'Resultados Rápidos',
-      description: 'Entrega de resultados en tiempo óptimo',
+      description:
+        'Entrega de resultados en tiempo óptimo para decisiones clínicas oportunas y sin demoras.',
+      footerIcon: Zap,
+      footer: 'Prioridad de entrega',
     },
     {
       icon: Shield,
       title: 'Confiabilidad',
-      description: 'Procesos certificados y controlados',
+      description:
+        'Procesos certificados y controlados rigurosamente bajo directrices de aseguramiento de calidad.',
+      footerIcon: CircleCheck,
+      footer: 'Protocolos validados',
     },
     {
       icon: Award,
       title: 'Excelencia',
-      description: 'Personal altamente capacitado',
+      description:
+        'Personal altamente capacitado, microbiólogos y técnicos dedicados a un trato empático y riguroso.',
+      footerIcon: BadgeCheck,
+      footer: 'Personal colegiado',
     },
   ];
 
-  const navLinks = [
-    { label: 'Servicios', href: '#servicios' },
-    // { label: 'Exámenes', href: '#examenes' },
-    { label: 'Contacto', href: '#contacto' },
+  const processSteps = [
+    { num: '01', title: 'Recepción', subtitle: 'Sin largas esperas' },
+    { num: '02', title: 'Toma de Muestra', subtitle: 'Técnica no traumática' },
+    { num: '03', title: 'Procesamiento', subtitle: 'Equipo automatizado' },
+    { num: '04', title: 'Entrega Digital', subtitle: 'Vía Email o impreso' },
   ];
 
   return (
-    <div style={{ minHeight: '100vh', backgroundColor: '#ffffff', fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
-      {/* ==================== HEADER ==================== */}
-      <header style={{
-        position: 'sticky',
-        top: 0,
-        zIndex: 50,
-        width: '100%',
-        borderBottom: '1px solid #f0f0f0',
-        backgroundColor: 'rgba(255,255,255,0.97)',
-        backdropFilter: 'blur(12px)',
-      }}>
+    <div className="lp-page">
+      <header className="lp-header">
         <div className="lp-header-inner">
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-            <Image src="/logo_v1.jpg" alt="Logo" width={44} height={44} style={{ borderRadius: '50%' }} />
-            <div className="lp-header-brand-text">
-              <div style={{ fontSize: '16px', fontWeight: 700, color: '#12385F', lineHeight: 1.2 }}>Laboratorio Clínico Martínez Ruiz</div>
-              <div style={{ fontSize: '11px', color: '#73A1CC', lineHeight: 1.2 }}>Salud y Confianza</div>
-            </div>
-          </div>
+          <a href="#inicio" className="lp-brand">
+            <Image
+              src="/logo_v1.jpg"
+              alt="Laboratorio Clínico Martínez Ruiz"
+              width={40}
+              height={40}
+              className="lp-brand-logo"
+            />
+            <span className="lp-brand-text">
+              <span className="lp-brand-name">Laboratorio Clínico Martínez Ruiz</span>
+              <span className="lp-brand-tagline">Salud y Confianza</span>
+            </span>
+          </a>
 
-          <nav className="lp-header-nav">
-            {navLinks.map((item) => (
+          <nav className="lp-header-nav" aria-label="Principal">
+            {navLinks.map((item, index) => (
               <a
-                key={item.label}
+                key={item.href}
                 href={item.href}
-                style={{ fontSize: '14px', fontWeight: 500, color: '#12385F', textDecoration: 'none', transition: 'color 0.2s' }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = '#2B93D1')}
-                onMouseLeave={(e) => (e.currentTarget.style.color = '#12385F')}
+                className={index === 0 ? 'lp-nav-link is-active' : 'lp-nav-link'}
               >
                 {item.label}
               </a>
             ))}
           </nav>
 
-          {/* <button
-            className="lp-header-cta"
-            style={{
-              backgroundColor: '#154B81',
-              color: '#fff',
-              border: 'none',
-              padding: '10px 24px',
-              borderRadius: '8px',
-              fontSize: '14px',
-              fontWeight: 600,
-              cursor: 'pointer',
-              transition: 'background-color 0.2s',
-            }}
-            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#12385F')}
-            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#154B81')}
+          <a
+            className="lp-btn lp-btn-whatsapp lp-header-wa"
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            Agendar Cita
-          </button> */}
+            <WhatsAppIcon size={18} />
+            Contactar por WhatsApp
+          </a>
 
-          {/* Mobile hamburger */}
           <button
             className="lp-mobile-toggle"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Menú"
+            aria-label={mobileMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
+            aria-expanded={mobileMenuOpen}
           >
-            {mobileMenuOpen ? (
-              <X style={{ width: 24, height: 24, color: '#12385F' }} />
-            ) : (
-              <Menu style={{ width: 24, height: 24, color: '#12385F' }} />
-            )}
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
 
-        {/* Mobile nav dropdown */}
         {mobileMenuOpen && (
           <div className="lp-mobile-nav">
             {navLinks.map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                onClick={() => setMobileMenuOpen(false)}
-                style={{ fontSize: '15px', fontWeight: 500, color: '#12385F', textDecoration: 'none', padding: '8px 0' }}
-              >
+              <a key={item.href} href={item.href} onClick={() => setMobileMenuOpen(false)}>
                 {item.label}
               </a>
             ))}
-            {/* <button
-              style={{
-                backgroundColor: '#154B81',
-                color: '#fff',
-                border: 'none',
-                padding: '12px',
-                borderRadius: '8px',
-                fontSize: '14px',
-                fontWeight: 600,
-                cursor: 'pointer',
-                width: '100%',
-                marginTop: '4px',
-              }}
+            <a
+              className="lp-btn lp-btn-whatsapp"
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Agendar Cita
-            </button> */}
+              <WhatsAppIcon size={18} />
+              Contactar por WhatsApp
+            </a>
           </div>
         )}
       </header>
 
       <main>
-        {/* ==================== HERO ==================== */}
-        <section className="lp-hero">
-          <div className="lp-hero-media" aria-hidden="true">
-            <Image
-              src="/pexels-labv4.jpg"
-              alt=""
-              fill
-              priority
-              className="lp-hero-bg"
-              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 100vw, 100vw"
-            />
-          </div>
-          <div className="lp-hero-inner">
-            <div className="lp-hero-card">
-              <h2 className="lp-hero-title">
-                Resultados Precisos y Confiables
-              </h2>
+        <section id="inicio" className="lp-hero">
+          <div className="lp-hero-glow lp-hero-glow-a" aria-hidden="true" />
+          <div className="lp-hero-glow lp-hero-glow-b" aria-hidden="true" />
+          <div className="lp-container lp-hero-grid">
+            <div className="lp-hero-copy">
+              <div className="lp-pill">
+                <span className="lp-pill-dot" />
+                Diagnóstico clínico avanzado
+              </div>
+              <h1 className="lp-hero-title">
+                Resultados <span>Precisos</span> y Confiables
+              </h1>
               <p className="lp-hero-description">
                 Brindamos servicios de análisis clínicos con los más altos estándares de calidad,
-                respaldados por tecnología moderna y un equipo de profesionales altamente capacitados.
+                respaldados por tecnología moderna y un equipo de profesionales altamente
+                capacitados.
               </p>
-              <div className="lp-hero-buttons">
-                {/* <a
-                  href="#examenes"
-                  style={{
-                    backgroundColor: '#154B81',
-                    color: '#fff',
-                    border: 'none',
-                    padding: '12px 28px',
-                    borderRadius: '8px',
-                    fontSize: '14px',
-                    fontWeight: 600,
-                    cursor: 'pointer',
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '8px',
-                    transition: 'background-color 0.2s',
-                    textDecoration: 'none',
-                  }}
-                  onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#12385F')}
-                  onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#154B81')}
-                >
-                  Ver Catálogo de Exámenes
-                  <ChevronRight style={{ width: 16, height: 16 }} />
-                </a> */}
+              <div className="lp-hero-actions">
                 <a
-                  href="https://wa.me/50499178861?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20informaci%C3%B3n%20sobre%20sus%20servicios"
+                  className="lp-btn lp-btn-whatsapp"
+                  href={WHATSAPP_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  style={{
-                    backgroundColor: 'transparent',
-                    color: '#25D366',
-                    border: '2px solid #25D366',
-                    padding: '12px 28px',
-                    borderRadius: '8px',
-                    fontSize: '14px',
-                    fontWeight: 600,
-                    cursor: 'pointer',
-                    transition: 'all 0.2s',
-                    textDecoration: 'none',
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '8px',
-                  }}
-                  onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#25D366'; e.currentTarget.style.color = '#fff'; }}
-                  onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.color = '#25D366'; }}
                 >
+                  <WhatsAppIcon size={18} />
                   Contáctanos
                 </a>
+                <a className="lp-btn lp-btn-ghost" href="#servicios">
+                  <LayoutGrid size={18} />
+                  Ver catálogo de servicios
+                </a>
+              </div>
+            </div>
+
+            <div className="lp-hero-visual">
+              <div className="lp-hero-photo">
+                <Image
+                  src="/pexels-labv4.jpg"
+                  alt="Profesional de laboratorio analizando muestras"
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 480px"
+                />
+              </div>
+              <div className="lp-hero-badge">
+                <div>
+                  <strong>Control y Calidad Médica</strong>
+                  <p>El Paraíso, Honduras</p>
+                </div>
+                <span className="lp-hero-badge-icon" aria-hidden="true">
+                  <Shield size={22} />
+                </span>
               </div>
             </div>
           </div>
         </section>
 
-        {/* ==================== SERVICIOS ==================== */}
         <section id="servicios" className="lp-section">
           <div className="lp-container">
-            <div style={{ textAlign: 'center', marginBottom: '48px' }}>
-              <h2 className="lp-section-title">
-                Nuestros Servicios
-              </h2>
-              <p style={{ fontSize: '16px', color: '#64748B', maxWidth: '560px', margin: '0 auto', lineHeight: 1.6 }}>
-                Seis áreas de laboratorio y atención complementaria en sucursal.
-              </p>
+            <div className="lp-section-intro">
+              <h2>Nuestros Servicios</h2>
+              <p>Seis áreas de laboratorio y atención complementaria en sucursal.</p>
             </div>
+
             <div className="lp-services-grid">
-              {services.map((service, i) => (
-                <div
-                  key={i}
-                  className="lp-service-card"
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.boxShadow = '0 8px 30px rgba(18,56,95,0.08)';
-                    e.currentTarget.style.borderColor = '#73A1CC';
-                    e.currentTarget.style.transform = 'translateY(-2px)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.boxShadow = 'none';
-                    e.currentTarget.style.borderColor = '#E8EDF2';
-                    e.currentTarget.style.transform = 'translateY(0)';
-                  }}
-                >
+              {services.map((service) => (
+                <article key={service.title} className="lp-service-card">
                   <div className="lp-service-icon">
-                    <service.icon style={{ width: 24, height: 24, color: '#154B81' }} />
+                    <service.icon size={26} />
                   </div>
-                  <h3 style={{ fontSize: '18px', fontWeight: 700, color: '#12385F', marginBottom: '10px' }}>
-                    {service.title}
-                  </h3>
-                  <p style={{ fontSize: '14px', color: '#64748B', lineHeight: 1.65 }}>
-                    {service.description}
-                  </p>
-                </div>
+                  <h3>{service.title}</h3>
+                  <p>{service.description}</p>
+                </article>
               ))}
-              <div
-                className="lp-service-card lp-service-vital"
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.boxShadow = '0 8px 30px rgba(18,56,95,0.08)';
-                  e.currentTarget.style.borderColor = '#73A1CC';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.boxShadow = 'none';
-                  e.currentTarget.style.borderColor = '#E8EDF2';
-                }}
-              >
-                <div className="lp-service-icon" style={{ marginBottom: 0 }}>
-                  <HeartPulse style={{ width: 24, height: 24, color: '#154B81' }} />
-                </div>
-                <div>
-                  <div className="lp-service-vital-label">Atención en sucursal</div>
-                  <h3 style={{ fontSize: '18px', fontWeight: 700, color: '#12385F', marginBottom: '8px' }}>
-                    Signos vitales y antropometría
-                  </h3>
-                  <p style={{ fontSize: '14px', color: '#64748B', lineHeight: 1.65, margin: 0 }}>
-                    Toma de peso, talla y presión arterial. Servicio inmediato, sin muestra ni informe de laboratorio.
-                  </p>
-                </div>
-              </div>
             </div>
+
+            <article className="lp-vital-banner">
+              <div className="lp-vital-icon">
+                <HeartPulse size={30} />
+              </div>
+              <div>
+                <div className="lp-vital-meta">
+                  <span className="lp-chip">Atención en sucursal</span>
+                  <span className="lp-live">
+                    <span className="lp-live-dot" />
+                    Sin cita previa
+                  </span>
+                </div>
+                <h3>Signos vitales y antropometría</h3>
+                <p>
+                  Toma de peso, talla y presión arterial. Servicio inmediato, sin muestra ni
+                  informe de laboratorio.
+                </p>
+              </div>
+            </article>
           </div>
         </section>
 
         {/* <ExamCatalog /> */}
 
-        {/* ==================== BENEFICIOS ==================== */}
-        <section className="lp-section-sm lp-benefits">
+        <section id="beneficios" className="lp-section lp-benefits">
           <div className="lp-container">
-            <div className="lp-benefits-intro">
-              <div className="lp-benefits-label">¿Por qué elegirnos?</div>
-              <h2 className="lp-section-title" style={{ marginBottom: 0 }}>
-                Nuestros beneficios
-              </h2>
+            <div className="lp-section-intro">
+              <span className="lp-kicker">¿Por qué elegirnos?</span>
+              <h2>Nuestros beneficios</h2>
             </div>
             <div className="lp-benefits-grid">
-              {benefits.map((benefit, i) => (
-                <div key={i} style={{ textAlign: 'center' }}>
-                  <div style={{
-                    width: '64px',
-                    height: '64px',
-                    borderRadius: '50%',
-                    backgroundColor: '#E8F2FA',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    margin: '0 auto 20px',
-                  }}>
-                    <benefit.icon style={{ width: 28, height: 28, color: '#154B81' }} />
+              {benefits.map((benefit) => (
+                <article key={benefit.title} className="lp-benefit-card">
+                  <div className="lp-benefit-icon">
+                    <benefit.icon size={32} />
                   </div>
-                  <h3 style={{ fontSize: '18px', fontWeight: 700, color: '#12385F', marginBottom: '8px' }}>
-                    {benefit.title}
-                  </h3>
-                  <p style={{ fontSize: '14px', color: '#64748B', lineHeight: 1.6 }}>
-                    {benefit.description}
-                  </p>
+                  <h3>{benefit.title}</h3>
+                  <p>{benefit.description}</p>
+                  <div className="lp-benefit-footer">
+                    <benefit.footerIcon size={16} />
+                    {benefit.footer}
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="lp-section-tight">
+          <div className="lp-container">
+            <div className="lp-process">
+              {processSteps.map((step) => (
+                <div key={step.num} className="lp-process-item">
+                  <span>{step.num}</span>
+                  <div>
+                    <h4>{step.title}</h4>
+                    <p>{step.subtitle}</p>
+                  </div>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* ==================== CONTACTO ==================== */}
-        <section id="contacto" style={{ backgroundColor: '#12385F' }} className="lp-section">
-          <div className="lp-container">
-            <div className="lp-contact-grid">
-              {/* Left: Info */}
-              <div>
-                <h2 className="lp-contact-title">
-                  Contáctanos
-                </h2>
-                <p style={{ fontSize: '15px', color: '#93BDE0', lineHeight: 1.7, marginBottom: '36px', maxWidth: '440px' }}>
-                  Estamos aquí para atenderte. Comunícate con nosotros para agendar tu cita o resolver tus dudas.
-                </p>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-                  {[
-                    { Icon: Phone, label: 'Teléfono', value: '2793-4073 / 9917-8861' },
-                    { Icon: Mail, label: 'Email', value: 'labmartinezruiz@gmail.com' },
-                    { Icon: MapPin, label: 'Ubicación', value: 'El Paraíso, Honduras' },
-                  ].map(({ Icon, label, value }, i) => (
-                    <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-                      <div style={{
-                        width: '42px',
-                        height: '42px',
-                        borderRadius: '10px',
-                        backgroundColor: 'rgba(255,255,255,0.08)',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        flexShrink: 0,
-                      }}>
-                        <Icon style={{ width: 20, height: 20, color: '#ffffff' }} />
-                      </div>
-                      <div>
-                        <div style={{ fontSize: '12px', color: '#7BA8CC', marginBottom: '2px', textTransform: 'uppercase', letterSpacing: '0.5px', fontWeight: 500 }}>
-                          {label}
-                        </div>
-                        <div style={{ fontSize: '15px', color: '#ffffff', fontWeight: 500 }}>
-                          {value}
-                        </div>
-                      </div>
+        <section id="horarios" className="lp-contact">
+          <div className="lp-container lp-contact-grid">
+            <div>
+              <div className="lp-pill lp-pill-on-dark">
+                Atención y citas
+              </div>
+              <h2>Contáctanos</h2>
+              <p>
+                Estamos aquí para atenderte. Comunícate con nosotros para agendar tu cita o
+                resolver tus dudas.
+              </p>
+              <div className="lp-contact-list">
+                <div className="lp-contact-item">
+                  <span className="lp-contact-icon">
+                    <Phone size={22} />
+                  </span>
+                  <div>
+                    <span className="lp-contact-label">Teléfonos</span>
+                    <div className="lp-contact-value">
+                      <a href="tel:+50427934073">+504 2793-4073</a>
+                      <span>/</span>
+                      <a href="tel:+50499178861">+504 9917-8861</a>
                     </div>
-                  ))}
+                  </div>
+                </div>
+                <div className="lp-contact-item">
+                  <span className="lp-contact-icon">
+                    <Mail size={22} />
+                  </span>
+                  <div>
+                    <span className="lp-contact-label">Email</span>
+                    <a className="lp-contact-value" href="mailto:labmartinezruiz@gmail.com">
+                      labmartinezruiz@gmail.com
+                    </a>
+                  </div>
+                </div>
+                <div className="lp-contact-item">
+                  <span className="lp-contact-icon">
+                    <MapPin size={22} />
+                  </span>
+                  <div>
+                    <span className="lp-contact-label">Ubicación</span>
+                    <span className="lp-contact-value">El Paraíso, Honduras</span>
+                  </div>
                 </div>
               </div>
+            </div>
 
-              {/* Right: Horario Card */}
-              <div style={{
-                backgroundColor: '#ffffff',
-                borderRadius: '14px',
-                padding: '32px',
-                boxShadow: '0 8px 30px rgba(0,0,0,0.12)',
-              }}>
-                <h3 style={{ fontSize: '18px', fontWeight: 700, color: '#12385F', marginBottom: '24px' }}>
-                  Horario de Atención
-                </h3>
-                {[
-                  { day: 'Lunes - Viernes', hours: '7:00 AM - 4:00 PM', color: '#64748B' },
-                  { day: 'Sábados', hours: '7:00 AM - 12:00 PM', color: '#64748B' },
-                  { day: 'Domingos', hours: 'Cerrado', color: '#DF4F52' },
-                ].map(({ day, hours, color }, i) => (
-                  <div
-                    key={i}
-                    style={{
-                      display: 'flex',
-                      justifyContent: 'space-between',
-                      alignItems: 'center',
-                      padding: '14px 0',
-                      borderBottom: i < 2 ? '1px solid #f0f0f0' : 'none',
-                    }}
-                  >
-                    <span style={{ fontSize: '14px', fontWeight: 500, color: '#12385F' }}>{day}</span>
-                    <span style={{ fontSize: '14px', fontWeight: 500, color }}>{hours}</span>
-                  </div>
-                ))}
+            <div className="lp-hours-card">
+              <div className="lp-hours-head">
+                <div className="lp-hours-title">
+                  <CalendarClock size={26} />
+                  <h3>Horario de Atención</h3>
+                </div>
+                {clinicOpen === null ? null : clinicOpen ? (
+                  <span className="lp-status is-open">
+                    <span /> Abierto ahora
+                  </span>
+                ) : (
+                  <span className="lp-status is-closed">
+                    <span /> Fuera de servicio
+                  </span>
+                )}
+              </div>
+              <div className="lp-hours-row">
+                <span>Lunes - Viernes</span>
+                <strong>7:00 AM - 4:00 PM</strong>
+              </div>
+              <div className="lp-hours-row">
+                <span>Sábados</span>
+                <strong>7:00 AM - 12:00 PM</strong>
+              </div>
+              <div className="lp-hours-row">
+                <span>Domingos</span>
+                <em>Cerrado</em>
+              </div>
+              <div className="lp-hours-cta">
+                <div>
+                  <strong>¿Tienes consultas urgentes?</strong>
+                  <p>Respondemos a la brevedad</p>
+                </div>
                 <a
-                  href="https://wa.me/50499178861?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20una%20informacion"
+                  className="lp-btn lp-btn-whatsapp"
+                  href={WHATSAPP_INFO_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  style={{
-                  width: '100%',
-                  backgroundColor: 'transparent',
-                  color: '#25D366',
-                  border: '2px solid #25D366',
-                  padding: '14px',
-                  borderRadius: '8px',
-                  fontSize: '14px',
-                  fontWeight: '600',
-                  cursor: 'pointer',
-                  marginTop: '24px',
-                  transition: 'background-color 0.2s',
-                  textDecoration: 'none',
-                  display: 'block',
-                  textAlign: 'center',
-                  boxSizing: 'border-box',
-                  } as React.CSSProperties}
-                  onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#25D366'; e.currentTarget.style.color = '#fff'; }}
-                  onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.color = '#25D366'; }}
                 >
+                  <Send size={18} />
                   Escríbenos
                 </a>
               </div>
@@ -474,19 +441,24 @@ export default function Home() {
         </section>
       </main>
 
-      {/* ==================== FOOTER ==================== */}
-      <footer style={{ backgroundColor: '#f8fafc', borderTop: '1px solid #f0f0f0', padding: '24px 0' }}>
-        <div className="lp-footer-inner">
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-            <Image src="/logo_v1.jpg" alt="Logo" width={36} height={36} style={{ borderRadius: '50%' }} />
-            <div>
-              <div style={{ fontSize: '14px', fontWeight: 600, color: '#154B81' }}>Laboratorio Clínico Martínez Ruiz</div>
-              <div style={{ fontSize: '11px', color: '#73A1CC' }}>Salud y Confianza</div>
-            </div>
+      <footer className="lp-footer">
+        <div className="lp-container lp-footer-inner">
+          <div className="lp-brand">
+            <Image
+              src="/logo_v1.jpg"
+              alt="Laboratorio Clínico Martínez Ruiz"
+              width={36}
+              height={36}
+              className="lp-brand-logo"
+            />
+            <span className="lp-brand-text">
+              <span className="lp-brand-name">Laboratorio Clínico Martínez Ruiz</span>
+              <span className="lp-brand-tagline lp-brand-tagline-muted">
+                Salud, confianza y excelencia diagnóstica
+              </span>
+            </span>
           </div>
-          <p style={{ fontSize: '13px', color: '#94A3B8' }}>
-            © 2024 Laboratorio Clínico Martínez Ruiz. Todos los derechos reservados.
-          </p>
+          <p>© 2026 Laboratorio Clínico Martínez Ruiz. Todos los derechos reservados.</p>
         </div>
       </footer>
     </div>
