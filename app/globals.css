@@ -159,7 +159,12 @@ a {
   text-decoration: none;
   font-weight: 600;
   color: var(--navy-deep);
-  padding: 0.4rem 0;
+  padding: 0.55rem 0.75rem;
+  border-radius: 0.75rem;
+}
+
+.lp-mobile-nav a:not(.lp-btn).is-active {
+  background: #dce9ff;
 }
 
 .lp-btn {
@@ -278,8 +283,7 @@ a {
 
 .lp-hero-title span {
   color: var(--cyan);
-  text-decoration: underline wavy rgba(255, 179, 176, 0.7);
-  text-underline-offset: 0.35em;
+  text-decoration: none;
 }
 
 .lp-hero-description {

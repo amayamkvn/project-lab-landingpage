@@ -33,6 +33,13 @@ const WHATSAPP_URL =
 const WHATSAPP_INFO_URL =
   'https://wa.me/50499178861?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20una%20informacion';
 
+const NAV_LINKS = [
+  { label: 'Inicio', href: '#inicio', id: 'inicio' },
+  { label: 'Servicios', href: '#servicios', id: 'servicios' },
+  { label: 'Beneficios', href: '#beneficios', id: 'beneficios' },
+  { label: 'Horarios', href: '#horarios', id: 'horarios' },
+] as const;
+
 function isClinicOpen(date = new Date()): boolean {
   const utc = date.getTime() + date.getTimezoneOffset() * 60000;
   const honduras = new Date(utc - 3600000 * 6);
@@ -51,6 +58,7 @@ function isClinicOpen(date = new Date()): boolean {
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [clinicOpen, setClinicOpen] = useState<boolean | null>(null);
+  const [activeSection, setActiveSection] = useState('inicio');
 
   useEffect(() => {
     setClinicOpen(isClinicOpen());
@@ -58,12 +66,34 @@ export default function Home() {
     return () => window.clearInterval(timer);
   }, []);
 
-  const navLinks = [
-    { label: 'Inicio', href: '#inicio' },
-    { label: 'Servicios', href: '#servicios' },
-    { label: 'Beneficios', href: '#beneficios' },
-    { label: 'Horarios', href: '#horarios' },
-  ];
+  useEffect(() => {
+    const hash = window.location.hash.replace('#', '');
+    if (NAV_LINKS.some((link) => link.id === hash)) {
+      setActiveSection(hash);
+    }
+
+    const sections = NAV_LINKS.map((link) => document.getElementById(link.id)).filter(
+      (section): section is HTMLElement => Boolean(section),
+    );
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (visible?.target.id) {
+          setActiveSection(visible.target.id);
+        }
+      },
+      {
+        rootMargin: '-30% 0px -55% 0px',
+        threshold: [0.15, 0.35, 0.6],
+      },
+    );
+
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, []);
 
   const services = [
     {
@@ -137,7 +167,7 @@ export default function Home() {
     <div className="lp-page">
       <header className="lp-header">
         <div className="lp-header-inner">
-          <a href="#inicio" className="lp-brand">
+          <a href="#inicio" className="lp-brand" onClick={() => setActiveSection('inicio')}>
             <Image
               src="/logo_v1.jpg"
               alt="Laboratorio Clínico Martínez Ruiz"
@@ -152,11 +182,12 @@ export default function Home() {
           </a>
 
           <nav className="lp-header-nav" aria-label="Principal">
-            {navLinks.map((item, index) => (
+            {NAV_LINKS.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className={index === 0 ? 'lp-nav-link is-active' : 'lp-nav-link'}
+                className={activeSection === item.id ? 'lp-nav-link is-active' : 'lp-nav-link'}
+                onClick={() => setActiveSection(item.id)}
               >
                 {item.label}
               </a>
@@ -185,8 +216,16 @@ export default function Home() {
 
         {mobileMenuOpen && (
           <div className="lp-mobile-nav">
-            {navLinks.map((item) => (
-              <a key={item.href} href={item.href} onClick={() => setMobileMenuOpen(false)}>
+            {NAV_LINKS.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className={activeSection === item.id ? 'is-active' : undefined}
+                onClick={() => {
+                  setActiveSection(item.id);
+                  setMobileMenuOpen(false);
+                }}
+              >
                 {item.label}
               </a>
             ))}
