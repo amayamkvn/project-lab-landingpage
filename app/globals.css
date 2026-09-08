@@ -133,10 +133,6 @@ a {
   color: var(--text);
 }
 
-.lp-header-wa {
-  display: none;
-}
-
 .lp-mobile-toggle {
   display: inline-flex;
   background: none;
@@ -830,10 +826,6 @@ a {
 @media (min-width: 768px) {
   .lp-header-nav {
     display: flex;
-  }
-
-  .lp-header-wa {
-    display: inline-flex;
   }
 
   .lp-mobile-toggle,

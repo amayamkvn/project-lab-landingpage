@@ -194,16 +194,6 @@ export default function Home() {
             ))}
           </nav>
 
-          <a
-            className="lp-btn lp-btn-whatsapp lp-header-wa"
-            href={WHATSAPP_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <WhatsAppIcon size={18} />
-            Contactar por WhatsApp
-          </a>
-
           <button
             className="lp-mobile-toggle"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -229,16 +219,6 @@ export default function Home() {
                 {item.label}
               </a>
             ))}
-            <a
-              className="lp-btn lp-btn-whatsapp"
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              <WhatsAppIcon size={18} />
-              Contactar por WhatsApp
-            </a>
           </div>
         )}
       </header>
